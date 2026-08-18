@@ -9,7 +9,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
+require get_theme_file_path( '/inc/class-cpt-activite.php' );
+require get_theme_file_path( '/inc/class-metabox-activite.php' );
 /**
  * Chargement du CSS et du JS du thème.
  * On utilise le hook 'wp_enqueue_scripts'
