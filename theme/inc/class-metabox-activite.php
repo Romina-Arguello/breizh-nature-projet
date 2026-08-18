@@ -43,7 +43,6 @@ class Breizh_Nature_Metabox_Activite {
         $heure        = get_post_meta( $post->ID, '_activite_heure', true );
         $duree        = get_post_meta( $post->ID, '_activite_duree', true );
         $lieu         = get_post_meta( $post->ID, '_activite_lieu', true );
-        $niveau       = get_post_meta( $post->ID, '_activite_niveau', true );
         $participants = get_post_meta( $post->ID, '_activite_participants_max', true );
         $tarif        = get_post_meta( $post->ID, '_activite_tarif', true );
         $statut       = get_post_meta( $post->ID, '_activite_statut', true );
@@ -64,14 +63,7 @@ class Breizh_Nature_Metabox_Activite {
             <label for="activite_lieu"><?php esc_html_e( 'Lieu', 'breizh-nature' ); ?></label><br>
             <input type="text" id="activite_lieu" name="activite_lieu" value="<?php echo esc_attr( $lieu ); ?>" class="widefat">
         </p>
-        <p>
-            <label for="activite_niveau"><?php esc_html_e( 'Niveau de difficulté', 'breizh-nature' ); ?></label><br>
-            <select id="activite_niveau" name="activite_niveau">
-                <option value="facile" <?php selected( $niveau, 'facile' ); ?>><?php esc_html_e( 'Facile', 'breizh-nature' ); ?></option>
-                <option value="intermediaire" <?php selected( $niveau, 'intermediaire' ); ?>><?php esc_html_e( 'Intermédiaire', 'breizh-nature' ); ?></option>
-                <option value="difficile" <?php selected( $niveau, 'difficile' ); ?>><?php esc_html_e( 'Difficile', 'breizh-nature' ); ?></option>
-            </select>
-        </p>
+
         <p>
             <label for="activite_participants_max"><?php esc_html_e( 'Nombre maximal de participants', 'breizh-nature' ); ?></label><br>
             <input type="number" id="activite_participants_max" name="activite_participants_max" value="<?php echo esc_attr( $participants ); ?>" min="1">
@@ -126,9 +118,7 @@ class Breizh_Nature_Metabox_Activite {
         if ( isset( $_POST['activite_lieu'] ) ) {
             update_post_meta( $post_id, '_activite_lieu', sanitize_text_field( $_POST['activite_lieu'] ) );
         }
-        if ( isset( $_POST['activite_niveau'] ) ) {
-            update_post_meta( $post_id, '_activite_niveau', sanitize_text_field( $_POST['activite_niveau'] ) );
-        }
+
         if ( isset( $_POST['activite_participants_max'] ) ) {
             update_post_meta( $post_id, '_activite_participants_max', absint( $_POST['activite_participants_max'] ) );
         }
