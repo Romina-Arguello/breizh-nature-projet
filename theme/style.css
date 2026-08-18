@@ -1,0 +1,21 @@
+/*
+Theme Name: Breizh Nature
+Theme URI: https://github.com/Romina-Arguello/breizh-nature-projet
+Author: Romina Arguello
+Author URI: https://romina-arguello.website
+Description: Thème personnalisé pour Breizh'Nature, portail des activités nature en Bretagne. Développé manuellement dans le cadre du projet ENI.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: breizh-nature
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
