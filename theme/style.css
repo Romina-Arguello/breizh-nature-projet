@@ -19,3 +19,346 @@ body {
 *, *::before, *::after {
     box-sizing: inherit;
 }
+
+/* ============================
+   Variables de design
+============================ */
+:root {
+    --color-primary: #1B4332;
+    --color-primary-light: #2D6A4F;
+    --color-secondary: #40739E;
+    --color-accent: #E9C46A;
+    --color-bg: #FAF7F0;
+    --color-text: #2B2B2B;
+    --color-text-light: #6B6B6B;
+    --color-border: #E0DCD3;
+    --radius: 10px;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --font-heading: Georgia, 'Times New Roman', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    line-height: 1.2;
+}
+
+a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================
+   Header
+============================ */
+.site-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.site-title a {
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+
+.site-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header nav a {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* ============================
+   Grille d'activités (archive)
+============================ */
+.archive-activite main,
+.site-main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.archive-header h1 {
+    margin-bottom: 30px;
+}
+
+.activites-liste {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.activite-card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.activite-card:hover {
+    transform: translateY(-4px);
+}
+
+.activite-card-link {
+    display: block;
+    color: inherit;
+}
+.activite-card-link:hover {
+    text-decoration: none;
+}
+
+.activite-card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.activite-card-body {
+    padding: 16px 20px;
+}
+
+.activite-card-body h2 {
+    font-size: 1.2rem;
+    margin: 0 0 8px;
+}
+
+.activite-card-excerpt {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+.activite-card-infos {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.activite-card-infos li::before {
+    content: "· ";
+}
+.activite-card-infos li:first-child::before {
+    content: "";
+}
+
+/* ============================
+   Badges (type, niveau, statut)
+============================ */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 6px;
+}
+.badge-type {
+    background: var(--color-secondary);
+    color: #fff;
+}
+.badge-niveau {
+    background: var(--color-accent);
+    color: #4A3B00;
+}
+
+.statut {
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.statut-a_venir     { background: #D8F3DC; color: #1B4332; }
+.statut-complet     { background: #FFE5B4; color: #7A4E00; }
+.statut-annule      { background: #FADCD9; color: #8A2A1F; }
+.statut-termine     { background: #E0E0E0; color: #444; }
+
+/* ============================
+   Page activité (single)
+============================ */
+.single-activite main,
+.activite-detail {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.activite-image img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+}
+
+.activite-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.activite-infos ul {
+    list-style: none;
+    padding: 0;
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin: 20px 0;
+}
+
+.activite-infos li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+.activite-infos li:last-child {
+    border-bottom: none;
+}
+
+.activite-content {
+    margin: 30px 0;
+}
+/* ============================
+   Formulaire de réservation
+============================ */
+.bnr-reservation-form {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-top: 30px;
+}
+
+.bnr-reservation-form p {
+    margin-bottom: 14px;
+}
+
+.bnr-reservation-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+.bnr-reservation-form input,
+.bnr-reservation-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.bnr-reservation-form input:focus,
+.bnr-reservation-form textarea:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 1px;
+}
+
+.bnr-reservation-form button {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.bnr-reservation-form button:hover {
+    background: var(--color-primary-light);
+}
+
+.reservation-success {
+    background: #D8F3DC;
+    color: #1B4332;
+    padding: 16px;
+    border-radius: var(--radius);
+    font-weight: 600;
+}
+
+/* ============================
+   Footer
+============================ */
+.site-footer {
+    background: var(--color-primary);
+    color: #fff;
+    text-align: center;
+    padding: 24px 20px;
+    margin-top: 60px;
+    font-size: 0.9rem;
+}
+
+/* ============================
+   Responsive : mobile
+============================ */
+@media (max-width: 600px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .site-header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .activite-header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.activite-filtres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.activite-filtres select,
+.activite-filtres input {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+}
+.activite-filtres button {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}

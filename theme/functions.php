@@ -12,6 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 require get_theme_file_path( '/inc/class-cpt-activite.php' );
 require get_theme_file_path( '/inc/class-metabox-activite.php' );
 require get_theme_file_path( '/inc/class-taxonomies-activite.php' );
+require get_theme_file_path( '/inc/class-roles.php' );
+require get_theme_file_path( '/inc/class-filtres-activite.php' );
 /**
  * Chargement du CSS et du JS du thème.
  * On utilise le hook 'wp_enqueue_scripts'

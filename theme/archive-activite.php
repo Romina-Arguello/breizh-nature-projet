@@ -13,6 +13,39 @@ get_header(); ?>
             <h1><?php esc_html_e( 'Toutes nos activités', 'breizh-nature' ); ?></h1>
         </header>
 
+        <form method="get" class="activite-filtres">
+            <select name="type_activite">
+                <option value=""><?php esc_html_e( 'Tous les types', 'breizh-nature' ); ?></option>
+                <?php
+                $types = get_terms( array( 'taxonomy' => 'type_activite', 'hide_empty' => false ) );
+                foreach ( $types as $type ) :
+                    $selected = isset( $_GET['type_activite'] ) && $_GET['type_activite'] === $type->slug;
+                    ?>
+                    <option value="<?php echo esc_attr( $type->slug ); ?>" <?php selected( $selected ); ?>>
+                        <?php echo esc_html( $type->name ); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+
+            <select name="niveau">
+                <option value=""><?php esc_html_e( 'Tous les niveaux', 'breizh-nature' ); ?></option>
+                <?php
+                $niveaux = get_terms( array( 'taxonomy' => 'niveau', 'hide_empty' => false ) );
+                foreach ( $niveaux as $niveau ) :
+                    $selected = isset( $_GET['niveau'] ) && $_GET['niveau'] === $niveau->slug;
+                    ?>
+                    <option value="<?php echo esc_attr( $niveau->slug ); ?>" <?php selected( $selected ); ?>>
+                        <?php echo esc_html( $niveau->name ); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+
+            <input type="text" name="lieu" placeholder="<?php esc_attr_e( 'Lieu', 'breizh-nature' ); ?>"
+                   value="<?php echo isset( $_GET['lieu'] ) ? esc_attr( $_GET['lieu'] ) : ''; ?>">
+
+            <button type="submit"><?php esc_html_e( 'Filtrer', 'breizh-nature' ); ?></button>
+        </form>
+
         <?php if ( have_posts() ) : ?>
 
             <div class="activites-liste">
