@@ -10,5 +10,7 @@
 
 <header id="masthead" class="site-header">
     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-    <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+    <nav class="main-navigation">
+        <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+    </nav>
 </header>
